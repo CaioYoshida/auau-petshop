@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="newsletter-overlay">
+    <div class="newsletter">
+      <button id="close-newsletter-button" onclick="closeModal()">X</button>
+      <div class="newsletter-container">
+        <div class="newsletter-title">
+          Que tal um descontão de <strong>10%</strong> na sua compra?
+        </div>
+        <p>Cadastre-se e ganhe um <strong>super desconto</strong> para aproveitar e deixar seu pet felizão</p>
+        <div class="newsletter-input">
+          <input id="newsletter-email" type="email" placeholder="email@example.com.br">
+          <button type="button" onclick="SaveEmail()">CADASTRAR</button>
+          <span class="invalid-email-message"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-overlay hidden">
+    <div class="cart">
+      <div class="cart-container">
+        <div class="cart-header">
+          <div class="cart-title">
+            <h1>MINHA SACOLA</h1>
+            <button id="close-cart-button" onclick="closeCart()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+            </button>
+          </div>
+
+          <div class="cart-main"></div>
+        </div>
+
+        <div class="cart-footer">
+          <div class="cart-footer-price"></div>
+          
+          <button id="keep-buying-button" onclick="closeCart()">
+            Continuar Comprando
+          </button>
+          <button id="end-cart-button">
+            FINALIZAR COMPRA
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header-information">
+    <div id="header-information-container">
+      <span>Frete Gratis - <strong>Acima R$ 299</strong> - Sul e Sudeste</span>
+      <span>Não serviu? <strong>A primeira troca</strong>é grátis</span>
+      <span><strong>10 %</strong> de desconto no boleto</span>
+      <span>Pague em até<strong>10x sem juros</strong></span>
+    </div>
+  </div>
+
+  <header>
+    <img class="header-logo" src="./Assets/header/logo.png" alt="AuAu Petshop">
+
+    <div class="header-menu">
+      <span>Rações</span>
+      <span>Acessórios</span>
+      <span>Kits</span>
+      <span>Combos</span>
+      <span>Promoções</span>
+    </div>
+
+    <div class="aside-menu">
+      <button>
+        <img src="./Assets/header/search.png" alt="Buscar Produto">
+      </button>
+      <button>
+        <img src="./Assets/header/wish.png" alt="Lista de desejos">
+      </button>
+      <button id="cart-button-container" onclick="openCart()">
+        <div class="cart-quantity">
+          0
+        </div>
+        <img src="./Assets/header/cart.png" alt="Visuzaliar Carrinho">
+      </button>
+    </div>
+
+    <button id="responsive-menu-button" onclick="ToggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+    </button>
+
+    <div class="responsive-menu-container">
+      <button type="button">Rações</button>
+      <button type="button">Acessórios</button>
+      <button type="button">Kits</button>
+      <button type="button">Combos</button>
+      <button type="button">Promoções</button>
+
+      <div class="responsive-aside-menu">
+        <button>
+          <img src="./Assets/header/search.png" alt="Buscar Produto">
+        </button>
+        <button>
+          <img src="./Assets/header/wish.png" alt="Lista de desejos">
+        </button>
+        <button id="cart-button-container" onclick="openCart()">
+          <div class="cart-quantity second">
+            0
+          </div>
+          <img src="./Assets/header/cart.png" alt="Visuzaliar Carrinho">
+        </button>
+      </div>
+    </div>
+  </header>
+  
+
+  <main>
+    <div class="banner"></div>
+    <div class="banner-responsive"></div>
+  
+    <div class="favorite-products">
+      <div class="title-container">
+        <span>
+          -------------------
+        </span>
+        <div class="title">
+          <strong>Os Nossos queridinhos</strong>
+          <p>Produtos escolhido com carinho para você!</p>
+        </div>
+        <span>
+          -------------------
+        </span>
+      </div>
+
+      <div class="favorite-products-container">
+        <div>
+          <img class="side-banner" src="./Assets/banner/side-banner-1.png" alt="dog fofinho 1">
+        </div>
+
+        <div class="favorite-products-list"></div>
+
+        <div class="favorite-products-list second"></div>
+
+        <div>
+          <img class="side-banner" src="./Assets/banner/side-banner-2.png" alt="dog fofinho 2">
+        </div>
+      </div>
+    </div>
+  
+    <div class="exclusive-products">
+      <div class="title-container">
+        <span>
+          -------------------
+        </span>
+        <div class="title">
+          <strong>Produtos Exclusivos</strong>
+        </div>
+        <span>
+          -------------------
+        </span>
+      </div>
+
+      <div class="carroussel-pages-exclusive-products">
+        <div class="page"></div>
+        <div class="page selected"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+      
+      <div class="product-list"></div>
+    </div>
+
+    <div class="footer-banner">
+      <img src="./Assets/banner/footer-banner-1.png" alt="footer-banner-1">
+      <img src="./Assets/banner/footer-banner-2.png" alt="footer-banner-2">
+    </div>
+
+    <div class="best-seller-products">
+      <div class="title-container">
+        <span>
+          -------------------
+        </span>
+        <div class="title">
+          <strong>Produtos Mais Vendidos</strong>
+        </div>
+        <span>
+          -------------------
+        </span>
+      </div>
+
+      <div class="carroussel-pages-best-seller-products">
+        <div class="page"></div>
+        <div class="page selected"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+      
+      <div class="product-list second"></div>
+    </div>
+  </main>
+
+  <footer>
+    <img class="footer-logo" src="./Assets/header/logo.png" alt="AuAu Petshop">
+
+    <div class="footer-information-grid">
+      <div class="footer-information-container">
+        <strong>INSTITUCIONAL</strong>
+        <p>Quem Somos</p>
+        <p>Missão e visão</p>
+        <p>Valores</p>
+        <p>Política e Privacidade</p>
+      </div>
+
+      <div class="footer-information-container">
+        <strong>ATENDIMENTO</strong>
+        <p>Entregas</p>
+        <p>Trocas e Devoluções</p>
+        <p>Fale Conosco</p>
+        <p>Dúvidas Frequentes</p>
+      </div>
+
+      <div class="footer-information-container">
+        <strong>CONFIE</strong>
+        <img class="jet-logo" src="./Assets/footer/jet.png" alt="Jet Business">
+        <img class="seal-logo" src="./Assets/footer/seal.png" alt="Compre e ganhe">
+      </div>
+    </div>
+
+    <div class="card-brands">
+      <img src="./Assets/footer/brands.png" alt="Cartões aceitos">
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
