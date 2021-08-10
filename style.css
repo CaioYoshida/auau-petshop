@@ -334,6 +334,12 @@ header {
   width: min(45vw, 400px);
 }
 
+.promotion {
+  background: var(--yellow);
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
 .aside-menu {
   display: flex;
   flex-direction: row;
